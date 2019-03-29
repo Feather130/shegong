@@ -6,21 +6,40 @@
     </div>
     <div class="upload">
       <span>上传照片</span>
-      <input type="file" id="file-input" name="image" accept="image/*">
+      <input
+        type="file"
+        id="file-input"
+        name="image"
+        ref="checkedImg"
+        accept="image/*"
+        @change="hasImg"
+      >
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { mapMutations } from "vuex";
+export default {
+  methods: {
+    hasImg() {
+      const file = this.$refs.checkedImg.files[0];
+      if (file !== undefined) {
+        this.$store.commit("imgCut", {
+          files: file,
+          cutShow: true
+        });
+      }
+    }
+  }
+};
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 
 <style lang="scss" scoped>
 .showImg {
   height: 50%;
   position: relative;
+  margin-bottom: 27.5px;
   .img {
     height: 100%;
     background-repeat: no-repeat;

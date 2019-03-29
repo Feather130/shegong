@@ -1,16 +1,22 @@
 <template>
   <div id="app">
     <show-img></show-img>
+    <form-input></form-input>
+    <CutImg></CutImg>
   </div>
 </template>
 
 <script>
 import ShowImg from "./components/ShowImg.vue";
+import FormInput from "./components/FormInput.vue";
+import CutImg from "./components/CutImg.vue";
 
 export default {
   name: "app",
   components: {
-    ShowImg
+    ShowImg,
+    FormInput,
+    CutImg
   }
 };
 </script>
@@ -25,5 +31,6 @@ body {
 }
 #app{
   height: 100%;
+  position: relative;
 }
 </style>
